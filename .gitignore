@@ -2,7 +2,7 @@
 output/*
 
 # IDEA folder for Pycharm development
-.idea/*
+*/.idea/*
 
 # Lockfile for pipenv
 *.lock
