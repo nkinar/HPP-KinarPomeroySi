@@ -13,6 +13,7 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 plt.style.use('ggplot')
 mpl.rcParams["mathtext.fontset"] = "stix"
+mpl.rcParams.update({'font.size': FONT_SIZE})
 
 
 def run_k_q_example(start_string, additional_text, downsample, filt, filt_cutoff, fs, fs_down,
@@ -66,13 +67,16 @@ def run_k_q_example(start_string, additional_text, downsample, filt, filt_cutoff
     ax = fig.add_subplot(1, 2, 1)
     ax.plot(tlog, delta_T1_trim_heating1, color=MEASURED_COLOR, label='Measured')
     ax.plot(np.log(t_tlinear0), dT_sp_synth, color=MODELLED_COLOR, label='Modelled')
-    ax.axvline(x=np.log(tlinear), linestyle=':', color=MODELLED_COLOR, label='Identified Linear Section')
+    ax.axvline(x=np.log(tlinear), linestyle=':', color=MODELLED_COLOR, label='Linear\nSection')
     place_rmse_mb_pd_on_plot(rmse_sp, mb_sp, pd_sp, 'K', 1, 'center left',
                              is_scientific,
                              use_pd)
-    ax.legend()
+    ax.legend(loc='best')
     ax.set_xlabel(r'$\mathrm{log}(t)$')
     ax.set_ylabel(create_label('$\Delta T$', 'K'))
+    ylim = list(ax.get_ylim())
+    ylim[1] += 0.40*(ylim[1]-ylim[0])
+    ax.set_ylim(ylim)
     ax.set_title('(a)', loc='left')
 
     # (b)

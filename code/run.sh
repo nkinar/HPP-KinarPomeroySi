@@ -32,21 +32,24 @@ fi
 if [ "$1" = "BUILD" ]
 then
     echo "Building all of the figures...this can take time.  Please be patient."
+    echo "If a directory is being displayed in a file browser, this process might initially fail"
+    echo "when the output directory is created or deleted."
     shx mkdir ../output &&
 	  shx mkdir ../output/const-generated/ &&
     shx mkdir ../output/figures-generated &&
 	  shx mkdir ../output/tables-generated &&
     pipenv install &&
-    pipenv run python3 calibration_figures.py && # DONE
-    pipenv run python3 k_q_figure.py &&  # DONE
-    pipenv run python3 k_q_example.py &&  # DONE
-    pipenv run python3 sp_model_signal_example.py &&  # DONE
-    pipenv run python3 dp_model_inv_example.py &&  # DONE
-    pipenv run python3 example_signal_processing_figures.py && # DONE
-    pipenv run python3 process_all_signal.py &&  # DONE
-    pipenv run python3 plots_all_theta_rho.py && # DONE
-    pipenv run python3 signal-processing-stats.py &&  # DONE
-    pipenv run python3 oat_sensitivity.py
+    pipenv run python3 calibration_figures.py &&
+    pipenv run python3 k_q_figure.py &&
+    pipenv run python3 k_q_example.py &&
+    pipenv run python3 sp_model_signal_example.py &&
+    pipenv run python3 dp_model_inv_example.py &&
+    pipenv run python3 example_signal_processing_figures.py &&
+    pipenv run python3 process_all_signal.py &&
+    pipenv run python3 plots_all_theta_rho.py &&
+    pipenv run python3 signal-processing-stats.py &&
+    pipenv run python3 oat_sensitivity.py &&
+    magick mogrify -density 600 -format png ../output/figures-generated/*.pdf
     echo "DONE"
 elif [ "$1" = "CLEAN" ]
 then

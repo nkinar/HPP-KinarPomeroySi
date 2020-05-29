@@ -15,6 +15,7 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 plt.style.use('ggplot')
 mpl.rcParams["mathtext.fontset"] = "stix"
+mpl.rcParams.update({'font.size': FONT_SIZE})
 
 
 def test_calibration_k(path, start_string, additional_text, downsample, filt, filt_cutoff, fs,
@@ -213,7 +214,7 @@ def run_test_calibration_k(show_plot):
     ax.plot(qlist, kout_sp_all_vec, "^", label='Late-Time SP (all data)')
     ax.plot(qlist, kout_signal_vec, "*", label='Signal Processing SP', color="yellowgreen")
     ax.plot(qlist, kout_signal_curve_fit_vec, "h", label='Signal Processing SP with Curve-Fitting')
-    ax.set_ylim([-0.1, 4])
+    ax.set_ylim([-0.1, 7])
     set_xlim_linear(qlist[0], qlist[-1], nx)
     ax.set_xlim([qlist[0]-3, qlist[-1]+3])
     ax.set_xlabel(create_label('$q$', 'W \hspace{0.1} m^-1'))

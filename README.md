@@ -25,6 +25,7 @@ A sensor comprised of an electronic circuit and a hybrid single and dual heat pu
 For the `run.sh` script:
 * pipenv
 * `shx` installed via the Node Package Manager as `npm install shx -g`
+* ImageMagick for figure conversions
 
 All of the Python dependencies can be installed using `pip3` if the `run.sh` script is not to be used.
 When using `pipenv`, the dependencies will be automatically installed by the `run.sh` script.

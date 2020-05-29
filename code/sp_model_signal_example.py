@@ -12,6 +12,7 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 plt.style.use('ggplot')
 mpl.rcParams["mathtext.fontset"] = "stix"
+mpl.rcParams.update({'font.size': FONT_SIZE})
 
 
 def run_sp_model_example(q, k, t, b, c, d, show_plot=False):
@@ -71,7 +72,7 @@ def run_sp_model_example(q, k, t, b, c, d, show_plot=False):
     ax = fig.add_subplot(2, 2, 4)
     ax.set_xlabel('Time (s)')
     ax.set_ylabel(create_label('$\Delta \Gamma _{5} \hspace{0.3} (\hspace{0.3} t \hspace{0.3}) \hspace{1}$ '
-                               'Forward - Inverse', ''))
+                               'Forward - Inverse', 'K'))
     ax.plot(tth, dT_sig_pro_comp_diff, color=GREY_COLOR, ls='solid')
     ax.ticklabel_format(style='sci', axis='y', scilimits=(0, 0))
     ax.set_title('(d)', loc='center')

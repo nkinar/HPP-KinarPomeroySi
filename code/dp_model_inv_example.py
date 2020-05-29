@@ -14,6 +14,7 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 plt.style.use('ggplot')
 mpl.rcParams["mathtext.fontset"] = "stix"
+mpl.rcParams.update({'font.size': FONT_SIZE})
 
 
 def run_plot_output(alpha, fs, k, q, r0, run_full, t_heat, t, r):
@@ -144,7 +145,7 @@ def run_dp_model_inv_test(show_plot=False, run_full=False):
     # (c)
     ax = fig.add_subplot(3, 3, 3)
     ax.plot(tt, r_t_det_diff, color='grey', label='difference')
-    ax.set_ylabel(create_label('$r\hspace{0.3}(\hspace{0.3}t\hspace{0.3})\hspace{1}$ Forward - Inverse', 'mm'))
+    ax.set_ylabel(create_label('$r\hspace{0.3}(\hspace{0.3}t\hspace{0.3})\hspace{1}$ Forward -\n Inverse', 'mm'))
     # ax.set_xlabel('Time (s)')
     ticklabels_off_x()
     ax.set_title('(c)', loc='center')
@@ -173,7 +174,7 @@ def run_dp_model_inv_test(show_plot=False, run_full=False):
     # (f)
     ax = fig.add_subplot(3, 3, 6)
     ax.plot(tt, r_t_det_diff_dec, color='grey', label='difference')
-    ax.set_ylabel(create_label('$r\hspace{0.3}(\hspace{0.3}t\hspace{0.3})\hspace{1}$ Forward - Inverse', 'mm'))
+    ax.set_ylabel(create_label('$r\hspace{0.3}(\hspace{0.3}t\hspace{0.3})\hspace{1}$ Forward -\n Inverse', 'mm'))
     ticklabels_off_x()
     # ax.set_xlabel('Time (s)')
     ax.set_title('(f)', loc='center')
@@ -194,13 +195,16 @@ def run_dp_model_inv_test(show_plot=False, run_full=False):
     ax.plot(tt, r_det_mm_bn, color='grey', ls='dashed', label='Inverse')
     ax.set_ylabel(create_label('$r\hspace{0.3}(\hspace{0.3}t\hspace{0.3})$', 'mm'))
     ax.set_xlabel('Time (s)')
+    ylim = list(ax.get_ylim())
+    ylim[1] += 0.20*(ylim[1]-ylim[0])
+    ax.set_ylim(ylim)
     ax.legend()
     ax.set_title('(h)', loc='center')
 
     # (i)
     ax = fig.add_subplot(3, 3, 9)
     ax.plot(tt, r_t_det_diff_bn, color='grey', label='difference')
-    ax.set_ylabel(create_label('$r\hspace{0.3}(\hspace{0.3}t\hspace{0.3})\hspace{1}$ Forward - Inverse', 'mm'))
+    ax.set_ylabel(create_label('$r\hspace{0.3}(\hspace{0.3}t\hspace{0.3})\hspace{1}$ Forward -\n Inverse', 'mm'))
     ax.set_xlabel('Time (s)')
     ax.set_title('(i)', loc='center')
 

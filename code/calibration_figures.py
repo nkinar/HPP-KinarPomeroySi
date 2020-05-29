@@ -13,6 +13,7 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 plt.style.use('ggplot')
 mpl.rcParams["mathtext.fontset"] = "stix"
+mpl.rcParams.update({'font.size': FONT_SIZE})
 
 """
 File to obtain calibration figures for the paper

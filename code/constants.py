@@ -7,7 +7,7 @@ The calibrated radius is stored in mm.
 """
 
 # file extensions
-PLOT_EXTENSION = '.png'
+PLOT_EXTENSION = '.pdf'
 TABLE_EXT = '.txt'
 SAVEZ_EXT = '.npz'
 
@@ -18,8 +18,11 @@ HSQUARE_FIGSIZE = (9, 5)
 # figure size for long figures
 HLONG_FIGSIZE = (14, 5)
 HLONG_FIGSIZE_M = (15, 5)
-VLONG_FIGSIZE = (12, 10)
+VLONG_FIGSIZE = (17, 12)
 LARGE_SQUARE_FIGSIZE = (14, 9)
+
+# font size used for plots
+FONT_SIZE = 15
 
 # names of figures
 FIG_PATH = '../output/figures-generated/'

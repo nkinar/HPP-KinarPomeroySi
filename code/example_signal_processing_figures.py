@@ -10,6 +10,7 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 plt.style.use('ggplot')
 mpl.rcParams["mathtext.fontset"] = "stix"
+mpl.rcParams.update({'font.size': FONT_SIZE})
 
 
 def run_example_signal_processing_figure(theta_known, density_known, path, start_string, additional_text,
@@ -44,7 +45,10 @@ def run_example_signal_processing_figure(theta_known, density_known, path, start
     ax.plot(t1_trim_heating1, dT_synth_sp, label='Modelled', color=MODELLED_COLOR)
     ax.set_xlabel('Time (s)')
     ax.set_ylabel(create_label('$\Delta T \hspace{1}$', 'K'))
-    ax.legend()
+    ylim = list(ax.get_ylim())
+    ylim[1] += 0.20*(ylim[1]-ylim[0])
+    ax.set_ylim(ylim)
+    ax.legend(loc='best')
     ax.set_title('(a)', loc='left')
 
     # (b) Dual Probe
@@ -54,15 +58,21 @@ def run_example_signal_processing_figure(theta_known, density_known, path, start
     ax.axvline(cut_time, linestyle='--', label='Peak Time', color=MODELLED_COLOR)
     ax.set_xlabel('Time (s)')
     ax.set_ylabel(create_label('$\Delta T \hspace{1}$', 'K'))
-    ax.legend()
+    ylim = list(ax.get_ylim())
+    ylim[1] += 0.20*(ylim[1]-ylim[0])
+    ax.set_ylim(ylim)
+    ax.legend(loc='best')
     ax.set_title('(b)', loc='left')
 
     # (d) r(t)
     ax = fig.add_subplot(1, 3, 3)
     ax.plot(t2_trim1_cut, r_t_heating_cooling / 1.0e-3, label='Effective Radius', color='grey')
-    ax.legend()
+    ax.legend(loc='upper left')
     ax.set_ylabel(create_label('$r\hspace{0.3}(\hspace{0.3}t\hspace{0.3})$', 'mm'))
     ax.set_xlabel('Time (s)')
+    ylim = list(ax.get_ylim())
+    ylim[1] += 0.20*(ylim[1]-ylim[0])
+    ax.set_ylim(ylim)
     ax.set_title('(c)', loc='left')
 
     plt.tight_layout()

@@ -12,6 +12,7 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 plt.style.use('ggplot')
 mpl.rcParams["mathtext.fontset"] = "stix"
+mpl.rcParams.update({'font.size': 12})
 
 
 def get_oat_filename_processing(val, add):
@@ -601,13 +602,12 @@ def plot_oat(show=False):
     plt.savefig(OAT_SENSITIVITY_FIG_NAME_RHO)
     if show:
         plt.show()
-
 # DONE
 
 
 def main():
     check = True                    # set check = True to check and see if the files exist (and do not re-run)
-    # WARNING: The sensitivity analysis can take a number of hours so the files can be re-used
+    # WARNING: The sensitivity analysis can take a number of hours
     run_all_process(check)          # run all processing to obtain the OAT files
     compute_rmsd_mb_oat()           # compute RMSD and MB for all of the data
     plot_oat(show=False)            # create the plots
