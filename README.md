@@ -1,7 +1,7 @@
 # Signal Processing for In-Situ Detection of Effective Heat Pulse Probe Spacing Radius as the Basis of a Self-Calibrating Heat Pulse Probe
 ## by Nicholas J. Kinar, John W. Pomeroy, B.-C. Si
 
-*Journal of Geoscientific Instrumentation*
+*Journal of Geoscientific Instrumentation, Methods and Data Systems (GI)*
 
 ## What is it?
 
