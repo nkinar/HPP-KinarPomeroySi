@@ -56,7 +56,8 @@ sh ./run.sh CLEAN
 
 The data and code is available in this repo.  See `readme.txt` in the `hpp-data` folder.
 
-The data can also be downloaded from Figshare as <y>.
+The data can also be downloaded from Figshare.  Please see the published
+paper for further details and links.
 
 ## Built With
 
